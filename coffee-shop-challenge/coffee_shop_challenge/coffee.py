@@ -17,3 +17,9 @@ class Coffee:
         if self._name is not None:
             raise AttributeError("Coffee name cannot be changed after initialization")
         self._name = value
+
+    def orders(self):
+        return self._orders
+
+    def customers(self):
+        return list(set(order.customer for order in self._orders))
