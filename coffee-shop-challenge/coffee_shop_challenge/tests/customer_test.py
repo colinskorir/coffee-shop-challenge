@@ -16,3 +16,14 @@ def test_customer_name_validation():
     
     with pytest.raises(ValueError):
         Customer("ThisNameIsTooLongForACustomer")
+
+def test_customer_name_setter():
+    customer = Customer("John")
+    customer.name = "Jane"
+    assert customer.name == "Jane"
+    
+    with pytest.raises(TypeError):
+        customer.name = 123
+    
+    with pytest.raises(ValueError):
+        customer.name = ""
