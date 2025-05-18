@@ -51,3 +51,13 @@ def test_customer_coffees():
     assert len(coffees) == 2
     assert coffee1 in coffees
     assert coffee2 in coffees
+
+def test_customer_create_order():
+    customer = Customer("John")
+    coffee = Coffee("Latte")
+    
+    order = customer.create_order(coffee, 5.0)
+    assert isinstance(order, Order)
+    assert order.customer == customer
+    assert order.coffee == coffee
+    assert order.price == 5.0
