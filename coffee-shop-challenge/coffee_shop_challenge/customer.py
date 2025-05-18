@@ -27,3 +27,15 @@ class Customer:
         order = Order(self, coffee, price)
         self._orders.append(order)
         return order
+
+    @classmethod
+    def most_aficionado(cls, coffee):
+        if not coffee.orders():
+            return None
+        
+        customer_totals = {}
+        for order in coffee.orders():
+            customer = order.customer
+            customer_totals[customer] = customer_totals.get(customer, 0) + order.price
+        
+        return max(customer_totals.items(), key=lambda x: x[1])[0] 
