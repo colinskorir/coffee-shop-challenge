@@ -12,3 +12,9 @@ class Order:
         if not 1.0 <= price <= 10.0:
             raise ValueError("Price must be between 1.0 and 10.0")
         
+        self._customer = customer
+        self._coffee = coffee
+        self._price = price
+        
+        customer.orders().append(self)
+        coffee.orders().append(self)
