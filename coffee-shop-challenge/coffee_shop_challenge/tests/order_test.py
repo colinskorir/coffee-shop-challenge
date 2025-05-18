@@ -30,3 +30,17 @@ def test_order_validation():
     
     with pytest.raises(ValueError):
         Order(customer, coffee, 10.5)  # Too high
+
+def test_order_immutability():
+    customer = Customer("John")
+    coffee = Coffee("Latte")
+    order = Order(customer, coffee, 5.0)
+    
+    with pytest.raises(AttributeError):
+        order.price = 6.0
+    
+    with pytest.raises(AttributeError):
+        order.customer = Customer("Jane")
+    
+    with pytest.raises(AttributeError):
+        order.coffee = Coffee("Cappuccino")
