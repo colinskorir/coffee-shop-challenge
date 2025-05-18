@@ -44,3 +44,13 @@ def test_order_immutability():
     
     with pytest.raises(AttributeError):
         order.coffee = Coffee("Cappuccino")
+
+def test_order_relationships():
+    customer = Customer("John")
+    coffee = Coffee("Latte")
+    order = Order(customer, coffee, 5.0)
+    
+    assert order in customer.orders()
+    assert order in coffee.orders()
+    assert customer in coffee.customers()
+    assert coffee in customer.coffees() 
