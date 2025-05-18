@@ -42,3 +42,14 @@ def test_coffee_customers():
     assert len(customers) == 2
     assert customer1 in customers
     assert customer2 in customers
+
+def test_coffee_num_orders():
+    coffee = Coffee("Latte")
+    customer = Customer("John")
+    
+    assert coffee.num_orders() == 0
+    
+    Order(customer, coffee, 5.0)
+    Order(customer, coffee, 6.0)
+    
+    assert coffee.num_orders() == 2
