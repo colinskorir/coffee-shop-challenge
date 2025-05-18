@@ -53,3 +53,14 @@ def test_coffee_num_orders():
     Order(customer, coffee, 6.0)
     
     assert coffee.num_orders() == 2
+
+def test_coffee_average_price():
+    coffee = Coffee("Latte")
+    customer = Customer("John")
+    
+    assert coffee.average_price() == 0
+    
+    Order(customer, coffee, 5.0)
+    Order(customer, coffee, 6.0)
+    
+    assert coffee.average_price() == 5.5 
