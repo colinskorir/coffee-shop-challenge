@@ -1,5 +1,9 @@
 Coffee Shop Challenge
 
+
+USE 
+PYTHONPATH=".." pipenv run python debug.py
+
 Project Overview
 
 This is a Python-based implementation of the Coffee Shop Challenge, a simulation of an automatic coffee dispensing machine called the Barista-matic. The application manages an inventory of coffee ingredients, dispenses a fixed set of drinks, and updates the inventory based on sales. The system ensures drinks are only dispensed if sufficient ingredients are available and supports restocking to restore inventory levels.
@@ -58,6 +62,7 @@ BaristaMatic: Orchestrates the coffee machine, handling inventory, menu display,
 Input Handling: Reads commands from standard input, ignoring blank lines.
 
 Error Handling: Validates user input and checks ingredient availability before dispensing drinks.
+
 
 License
 
